@@ -1,0 +1,534 @@
+/*Seteando margenes y pading para modificarlo nosotros*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+/*Variables basicas*/
+:root {
+    --color-gris-claro: rgb(209, 209, 209);
+    --color-gris: rgb(128, 128, 128);
+    --color-blanco: rgb(228, 228, 228);
+    --color-azul: rgb(59,136,195);
+    --fuente-1: 'Anton', sans-serif;
+    --fuente-2: 'Oswald';
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@keyframes cambio{
+    0%{margin-left: 0;}
+    20%{margin-left: 0;}
+    
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+    
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+    
+    75%{margin-left: -300%;}
+    100%{margin-left: -300%;}
+}
+/*Aca van los estilos*/
+/*HEADER*/
+#cajaHeader{
+    background-color: var(--color-azul);
+    display: flex;
+    flex-wrap: wrap;
+}
+#logo{
+    width: 20%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fuente-1);
+    font-size: 3rem;
+    color: aliceblue;
+    cursor: pointer;
+}
+#barraDeBotones{
+    background-color: var(--color-azul);
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+.btn{
+    background-color: var(--color-azul);
+    height: 100%;
+    width: 11%;
+    border: 0.15rem solid var(--color-gris);
+    border-radius: 0.4rem;
+    color: aliceblue;
+    cursor: pointer;
+}
+.btn:hover, #btnEditar:hover{
+    background-color: var(--color-gris);
+}
+
+#cajaEditar{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#btnEditar{
+    height: 1.5rem;
+    width: 5rem;
+    cursor: pointer;
+    border-radius: 1.2rem;
+    border: 0.1rem solid var(--color-gris);
+}
+#cajaBusqueda{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#busqueda{
+    height: 1.5rem;
+    border-radius: 1.2rem;
+    border: 0.1rem solid var(--color-gris);
+    position: static;
+}
+#submit{
+    height: 1.5rem;
+    width: 2rem;
+    border-radius: 1.2rem;
+    border: 0.1rem solid var(--color-gris);
+    background-color: var(--color-gris);
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: var(--color-blanco);
+    color: var(--color-azul);
+}
+#seccion_fecha{
+    display: flex;
+    height: 4rem;
+    background-color: var(--color-gris-claro);
+    font-family: var(--fuente-2);
+    font-style: normal;
+}
+#clima{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left:2rem;
+}
+#fechaydolar{
+    width: 50%;
+}
+#fecha{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 45%;
+    margin-right: 2rem;
+    font-size: x-large;
+}
+#barra{
+    height: 5%;
+    background-color: black;
+    border-radius: 1rem;
+    margin-right: 1rem;
+}
+#cotizacion{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50%;
+}
+/*MAIN*/
+
+.slider{
+    width: 900px;
+    height: 400px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: auto;
+    justify-content: center;
+    margin-top: 1rem;
+    
+}
+.slider ul{
+    display: flex;
+    animation: cambio 20s infinite alternate linear;
+    width: 400%;
+}
+.slider li{
+    width: 100%;
+    list-style: none;
+}
+.slider img{
+    width: 100%;
+    height: 100%;
+}
+.cajaSlider{
+    width: 100%;
+    height: 100%;
+}
+.titleSlider{
+    margin-left: calc(((100vw - 900px)/2));
+    position: absolute;
+    bottom: 2.5rem;
+    left: 0;
+    padding: 16px;
+    color: white;
+    width: 900px;
+    background-image: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,0));
+    display: none;	
+    font-family: var(--fuente-2);
+}
+.noticia img{
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cajaN{
+    margin-top: 1%;
+    background-color: var(--color-gris-claro);
+}
+.noticias{
+    display: flex;
+    margin: auto;
+    width: 85%;
+    flex-wrap: wrap;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.noticia{
+    flex-grow: 1;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    flex: 1 0 30%;
+    width: 100%;
+}
+.noticia:hover .title{
+    display: block;
+}
+#contenidoSlider li:hover .titleSlider{
+    display: block;
+}
+.noticia img{
+    width: 100%;
+    height: 100%;
+}
+.title{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    padding: 16px;
+    color: white;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,0));
+    display: none;	
+    margin: 0;
+    font-family: var(--fuente-2);
+}
+.contenido{
+    display: flex;
+    background-color: var(--color-gris-claro);
+    margin: auto;
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;   
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+#imagen,#imagen2{
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+    background-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#imagen2{
+    width: 500px;
+    height: 250px;
+}
+#parrafo2{
+    margin-left: 4%;
+}
+#parrafo,#parrafo2{
+    width: 40%;
+    height:auto;
+    float: right;
+    text-align: left;
+    font-family: var(--fuente-2) ;
+    overflow: hidden;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+main img{
+    width: 100%;
+    height: auto;
+}
+.MasNoticias{
+    display: flex;
+    background-color: var(--color-gris-claro);
+    margin: auto;
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;   
+    justify-content: center;
+    overflow: hidden;
+    padding: 2%;
+}
+.cajaN{
+    text-align: center;
+    font-family: var(--fuente-2);
+    font-size: 15px;
+    background-color: var(--color-gris-claro);
+    margin: 2px;
+    overflow: hidden;
+    border-radius: 3%;
+    max-width: 300px;
+    min-height: 100px;
+    word-wrap: break-word;
+}
+.foto{
+    height: 150px;
+    margin: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#mainCrud{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#crud{
+    margin: 1rem 0 1rem 0;
+    height: 50rem;
+    background-color: var(--color-gris-claro);
+    justify-content: center;
+}
+#btnesCrud{
+    margin-top: 5rem;
+    margin-left: 4rem;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+.btnCrud{
+    width: 7rem;
+    height: 2rem;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: var(--color-gris-claro);
+    cursor: pointer;
+}
+.btnCrud:hover{
+    background-color: #0e3052;
+}
+#formCrud{
+    width: 100%;
+    height: 100%;
+}
+.lineaCrud{
+    display: flex;
+    justify-content: end;
+    background-color: var(--color-blanco);
+    border-bottom: black solid 0.1rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+.inputsCrud{
+    display: flex;
+    height: 100%;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+/*Fin del Main*/
+footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pagina{
+    width: 100%;
+    background-color: rgb(59,136,195);
+}
+.pagina .lugar1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 25px 0px;
+}
+.pagina .lugar1 .caja figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.pagina .lugar1 .caja figure img{
+    width: 240px;
+}
+.pagina .lugar1 .caja h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pagina .lugar1 .caja p{
+    color: #efefef;
+    margin-bottom: 10px;
+}
+.pagina .lugar1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pagina .lugar1 .red-social a:hover{
+    color: aqua;
+}
+.pagina .lugar2{
+    background-color: #0a1a2a;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+.pagina .lugar2 small{
+    font-size: 16px;
+}
+label{
+    display: flex;
+    justify-content: end;
+}
+#check{
+    display: none;
+}
+#botonCheck{
+    display: none;
+}
+/*Media query de tamaño celular*/
+@media only screen and (min-width:0px) and (max-width:480px) {
+    #cajaEditar{
+        display: none;
+    }
+    #cajaBusqueda{
+        display: none;
+    }
+    #cajaHeader{
+        justify-content: center;
+    }
+    .slider{
+        display: none;
+    }
+    #botonCheck{
+        display: block;
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        font-size:xx-large;
+        color: var(--color-blanco);
+    }
+    #barraDeBotones{
+        position: absolute;
+        left:-100%;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        z-index: 1;
+        transition: all 0.4s;
+    }
+    .btn{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #check:checked ~ #barraDeBotones{
+        left:0;
+    }
+    #seccion_fecha{
+        font-size: smaller;
+        height: 3rem;
+        width: 100%;
+    }
+    #fechaydolar{
+        width: 65%;
+    }
+    #barra{
+        display: none;
+    }
+    #fecha{
+        font-size: small;
+        margin-right: 3rem;
+    }
+    #clima{
+        width: 35%;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    #clima img{
+        display: none;
+    }
+    #cotizacion{
+        display: flex;
+        font-size: x-small;
+    }
+    footer{
+        height: 5rem;
+    }
+    .pagina .lugar1{
+        height: 4rem;
+    }
+    .pagina .lugar1 .caja #logo{
+        margin-left: 1rem;
+        display: block;
+        font-size: medium;
+    }
+    .pagina .lugar1 .caja p{
+        display: none;
+    }
+    .pagina .lugar1 .caja h2{
+        display: none;
+    }
+    .pagina .lugar1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #cajaRedes{
+        width: 100%;
+    }
+    #submit{
+        display: block;
+    }
+}
+/*Media query quita slider*/
+@media only screen and (min-width:481px) and (max-width:900px){
+    .slider{
+        display: none;
+    }
+    #cotizacion{
+        display:none;
+    }
+    #submit{
+        display: none;
+    }
+}

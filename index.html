@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 3 News</title>
+    <!--ESTILOS-->
+    <link rel="stylesheet" href="estilos.css">
+    <!--FUENTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <!--SCRIPT-->
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/849b19933d.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/12dc9a86f4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <header>
+        <div id="cajaHeader">
+            <div id="logo">T3NEWS</div>
+            <div id="cajaEditar">
+                <button id="btnEditar">Editar</button>
+            </div>
+            <div id="cajaBusqueda">
+                <label for="">
+                    <input type="text" placeholder="  Buscar" id="busqueda">
+                    <button id="submit">🔎</button>
+                </label>
+            </div>
+        </div>
+        <input type="checkbox" name="" id="check">
+        <label for="check" id="botonCheck">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <div id="barraDeBotones">
+            <button class="btn" id="economia">ECONOMÍA</button>
+            <button class="btn" id="politica">POLÍTICA</button>
+            <button class="btn" id="farandula">FARÁNDULA</button>
+            <button class="btn" id="finanzas">FINANZAS</button>
+            <button class="btn" id="clasificados">CLASIFICADOS</button>
+            <button class="btn" id="deportes">DEPORTES</button>
+            <button class="btn" id="internacional">INTERNACIONAL</button>
+            <button class="btn" id="columnistas">COLUMNISTAS</button>
+            <button class="btn" id="ciencia">CIENCIA</button>
+        </div>
+        <section id="seccion_fecha">
+            <div id="clima"></div>
+            <div id="fechaydolar">
+                <div id="fecha"></div>
+                <div id="barra"></div>
+                <div id="cotizacion"></div>
+            </div>
+        </section>
+    </header>
+
+
+    <main id="mainSelec">
+        <div class="slider">
+            <ul id="contenidoSlider"></ul>
+        </div>
+        <div class="noticias"></div>
+    </main>
+
+
+    <div id="crud" style="display: none;">
+        <div id="formCrud">
+            <div id="btnesCrud">
+                <button class="btnCrud" id="agregarCrud">AGREGAR</button>
+                <button class="btnCrud" id="actualizarCrud">ACTUALIZAR</button>
+            </div>
+            <div id="seccionCrud">
+                <div class="lineaCrud">
+                    <form method="post" action="/noticia/<%= item.url %>/editar?_method=PUT">
+                        <button class="btnCrud editar">EDITAR</button>
+                    </form>
+                    <form method="post" action="/noticia/<%= item.url %>/eliminar?_method=DELETE">
+                        <button class="btnCrud eliminar">ELIMINAR</button>
+                    </form>
+                </div>
+            </div>
+            <form id="formCrud" action="/crearNota" enctype="multipart/form-data" method="post">
+                <div class="inputsCrud">
+                    <div id="imagenCrud">
+                        <input type="file" name="imagenCrud">
+                    </div>
+                    <div id="tituloCrud">
+                        <input type="text" placeholder="titulo" name="tituloCrud">
+                    </div>
+                    <div id="subtituloCrud">
+                        <input type="text" placeholder="subtitulo" name="subtituloCrud">
+                    </div>
+                    <div id="cuerpoCrud">
+                        <textarea name="cuerpo"></textarea>
+                    </div>
+                    <div id="btnSubmit">
+                        <input type="submit" value="Guardar">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="noticiaDetalle" style="display: none;">
+        <div class="contenido">
+            <div class="contenido" id="imagen">
+                <img src="https://www.cronista.com/files/image/405/405393/61952088dfe6c.jpg" alt="" />
+            </div>
+            <div class="contenido" id="parrafo">
+                <h1> <%=nota.titulo%> </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod pa
+                    riatur fugit hic officia odit quos eveniet molestias cum ipsam rem e
+                    a, deleniti laudantium aspernatur, quasi consectetur perspiciatis 
+                    neque asperiores omnis.
+                </p>
+            </div>
+            <div class="contenido" id="parrafo2">
+                <p>Lorem ipsum dolor sit amet, c
+                    onsectetur adipisicing elit. Quia, aliquid. Illo architecto ab magni 
+                    nulla, pariatur, porro culpa, quidem fuga sunt voluptatem dolores incidu
+                    nt ducimus? Hic sint aliquid laboriosa <br>
+                    lom. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla reiciendi
+                    s nam tempore est error praesentium voluptatum ut dolor, voluptas fuga quid
+                    em sunt sed vitae aperiam temporibuhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhs omnis modi earum ratkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                    ione?
+                </p>
+            </div>
+            <div class="contenido" id="imagen2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_8KPqz6aEJYkQCotKq_KVTEiaq60XP1wvLg&usqp=CAU" alt="" />
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="pagina">
+            <div class="lugar1">
+                <div class="caja">
+                    <a href="#" id="logo">T3NEWS</a>
+                </div>
+                <div class="caja">
+                    <h2>Sobre nosotros</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quae.</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quae.</p>
+                </div>
+                <div class="caja" id="cajaRedes">
+                    <h2>Siguenos</h2>
+                    <div class="red-social">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="lugar2">
+                <small>&copy; 2022 <b>T3News</b> - Todos los Derechos Reservados.</small>
+            </div>
+    </footer>
+
+</body>
+</html>
