@@ -33,11 +33,11 @@ $(document).ready(function(){
 
         let temperatura = Math.floor(data.main.temp - 273.15) + "°C"
         let humedad = "Humedad: " + data.main.humidity + "%"
-        let lugar = data.name
+        
         let descripcion = capitalizeFirstLetter(data.weather[0].description)
         let icono = data.weather[0].icon
 
-        const arrayClima = [temperatura,humedad,lugar,descripcion]
+        const arrayClima = [temperatura,humedad,descripcion]
 
         const imgClima=["http://openweathermap.org/img/wn/01d@2x.png","http://openweathermap.org/img/wn/02d@2x.png","http://openweathermap.org/img/wn/03d@2x.png","http://openweathermap.org/img/wn/04d@2x.png","http://openweathermap.org/img/wn/09d@2x.png","http://openweathermap.org/img/wn/10d@2x.png","http://openweathermap.org/img/wn/11d@2x.png","http://openweathermap.org/img/wn/13d@2x.png","http://openweathermap.org/img/wn/50d@2x.png","http://openweathermap.org/img/wn/01n@2x.png","http://openweathermap.org/img/wn/02n@2x.png","http://openweathermap.org/img/wn/03n@2x.png","http://openweathermap.org/img/wn/04n@2x.png","http://openweathermap.org/img/wn/09n@2x.png","http://openweathermap.org/img/wn/10n@2x.png","http://openweathermap.org/img/wn/11n@2x.png","http://openweathermap.org/img/wn/13n@2x.png","http://openweathermap.org/img/wn/50n@2x.png"];
 
@@ -111,6 +111,9 @@ $(document).ready(function(){
 
     let fecha = hoy.toLocaleDateString('en-GB', opciones)
 
+
+    let id=0;
+    
     fetch(`https://api.mymemory.translated.net/get?q=${fecha}&langpair=en|es`)
     .then(response=>response.json())
     .then(data=>{
@@ -122,14 +125,14 @@ $(document).ready(function(){
     .then(response=>response.json())
     .then(data=>{
         data.articles.forEach(element => {
-            $(".noticias").prepend("<div class=noticia><img src="+element.urlToImage+"><h2 class=title>"+element.title+"</h2></div>")
+            $(".noticias").append("<div class=noticia id="+id+++"><img src="+element.urlToImage+"><h2 class=title>"+element.title+"</h2></div>")
         });
     })
     fetch("https://newsapi.org/v2/top-headlines?country=us&pageSize=6&apiKey=a722e98097bf4906b8e13a175f32d7af")
     .then(response=>response.json())
     .then(data=>{
         data.articles.forEach(element => {
-            $(".noticias").append("<div class=noticia><img src="+element.urlToImage+"><h2 class=title>"+element.title+"</h2></div>")
+            $(".noticias").append("<div class=noticia id="+id+++"><img src="+element.urlToImage+"><h2 class=title>"+element.title+"</h2></div>")
         });
     })
     fetch("https://newsapi.org/v2/top-headlines?country=ar&pageSize=6&apiKey=a722e98097bf4906b8e13a175f32d7af")
@@ -142,8 +145,6 @@ $(document).ready(function(){
         });
     })
 
-    
-
     $("#btnEditar").click(function (){
         $("#crud").css("display","flex")
         $("#mainSelec").hide()
@@ -151,13 +152,14 @@ $(document).ready(function(){
 
     $("#logo").click(function (){
         $("#crud").css("display","none")
+        $("#noticiaDetalle").hide()
         $("#mainSelec").show()
     })
 
     $(".noticias").click(function (){
-        $("noticiaDetalle").show()
-        $("#crud").css("display","none")
+        $("#noticiaDetalle").show()
         $("#mainSelec").hide()
     })
 
+    $("")
 })
