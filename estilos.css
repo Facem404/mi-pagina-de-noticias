@@ -448,6 +448,9 @@ label{
     #cajaHeader{
         justify-content: center;
     }
+    #editSearch{
+        display: none;
+    }
     .slider{
         display: none;
     }
@@ -486,23 +489,27 @@ label{
         display: flex;
         flex-direction: column;
         font-size: smaller;
-        /* height: 3rem; */
-        width: 100%;
-        
     }
-
+    #fechaydolar{
+        width:unset;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     #barra{
         display: none;
     }
     #fecha{
         font-size: small;
         /* margin-right: 3rem; */
+        justify-content: center;
+        margin-right: unset;
     }
     #clima{
-        width: 35%;
-        flex-wrap: wrap;
-        margin: 0;
-        
+        width: unset;
+        justify-content: space-evenly;
+        margin-right: unset;
+        margin-left: unset;
     }
     #clima img{
         display: none;
@@ -510,6 +517,7 @@ label{
     #cotizacion{
         display: flex;
         font-size: x-small;
+        justify-content: space-evenly;
     }
     footer{
         height: 5rem;
